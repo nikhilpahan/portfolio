@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 interface Project {
   id?: string;
@@ -23,19 +24,30 @@ const ProjectCard = ({
   featured?: boolean;
 }) => {
   const navigate = useNavigate();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const hasHover = window.matchMedia("(hover: hover)").matches;
+    if (hasHover && videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  }, []);
   
   const handleMouseEnter = (e: any) => {
+    const hasHover = window.matchMedia("(hover: hover)").matches;
+    if (!hasHover) return;
     window.dispatchEvent(new Event("project-hover-start"));
-    const video = e.currentTarget.querySelector("video");
-    if (video) video.play();
+    if (videoRef.current) videoRef.current.play();
   };
   
   const handleMouseLeave = (e: any) => {
+    const hasHover = window.matchMedia("(hover: hover)").matches;
+    if (!hasHover) return;
     window.dispatchEvent(new Event("project-hover-end"));
-    const video = e.currentTarget.querySelector("video");
-    if (video) {
-      video.pause();
-      video.currentTime = 0;
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
     }
   };
   
@@ -122,11 +134,13 @@ const ProjectCard = ({
       <div className="relative w-full aspect-video rounded-2xl md:rounded-2xl overflow-hidden shadow-sm ring-1 ring-border/30 transition-all duration-500">
         {project.image.match(/\.(mp4|webm|ogg)(?:$|\?)/i) ? (
           <video
+            ref={videoRef}
             src={project.image}
             preload="metadata"
             loop
             muted
             playsInline
+            autoPlay
             className="w-full h-full object-cover"
           />
         ) : (
@@ -134,13 +148,13 @@ const ProjectCard = ({
             <img
               src={project.image}
               alt={project.title}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${project.hoverImage ? 'group-hover:opacity-0 z-10' : ''}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${project.hoverImage ? 'opacity-0 md:opacity-100 md:group-hover:opacity-0 z-10' : ''}`}
             />
             {project.hoverImage && (
               <img
                 src={project.hoverImage}
                 alt={`${project.title} animated`}
-                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
+                className="absolute inset-0 w-full h-full object-cover opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-0"
               />
             )}
           </>

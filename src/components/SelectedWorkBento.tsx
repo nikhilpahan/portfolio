@@ -23,6 +23,12 @@ const MainCard = ({
   // Trigger video when button is hovered from outside
   useEffect(() => {
     if (!isVideo) return;
+    const hasHover = window.matchMedia("(hover: hover)").matches;
+    if (!hasHover) {
+      videoRef.current?.play().catch(() => { });
+      return;
+    }
+
     if (isButtonHovered) {
       videoRef.current?.play().catch(() => { });
     } else {
@@ -42,9 +48,13 @@ const MainCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay }}
-      onMouseEnter={() => videoRef.current?.play().catch(() => { })}
+      onMouseEnter={() => {
+        const hasHover = window.matchMedia("(hover: hover)").matches;
+        if (hasHover) videoRef.current?.play().catch(() => { });
+      }}
       onMouseLeave={() => {
-        if (!isButtonHovered && videoRef.current) {
+        const hasHover = window.matchMedia("(hover: hover)").matches;
+        if (hasHover && !isButtonHovered && videoRef.current) {
           videoRef.current.pause();
           videoRef.current.currentTime = 0;
         }
@@ -61,7 +71,8 @@ const MainCard = ({
             loop
             muted
             playsInline
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+            autoPlay
+            className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-[1.04]"
           />
         ) : (
           <>
@@ -69,11 +80,11 @@ const MainCard = ({
               src={project.image}
               alt={project.title}
               className={`absolute inset-0 w-full h-full object-cover transition-all duration-700
-                ${isActive ? "scale-[1.04]" : "group-hover:scale-[1.04]"}
+                ${isActive ? "md:scale-[1.04]" : "md:group-hover:scale-[1.04]"}
                 ${project.hoverImage
                   ? isActive
                     ? "opacity-0"
-                    : "group-hover:opacity-0"
+                    : "opacity-0 md:opacity-100 md:group-hover:opacity-0"
                   : ""
                 }`}
             />
@@ -81,8 +92,8 @@ const MainCard = ({
               <img
                 src={project.hoverImage}
                 alt=""
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 scale-[1.04]
-                  ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 md:scale-[1.04]
+                  ${isActive ? "opacity-100" : "opacity-100 md:opacity-0 md:group-hover:opacity-100"}`}
               />
             )}
           </>

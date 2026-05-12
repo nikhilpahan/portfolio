@@ -43,16 +43,12 @@ const ScrapbookImage = ({ src, alt, rotation = "rotate-0", tapePos = "top", clas
       {/* Photo Frame */}
       <div className="bg-background p-3 pb-8 md:pb-12 shadow-xl border border-border/50 relative z-10 overflow-hidden group">
         <div className="relative w-full h-full bg-secondary/50 overflow-hidden">
-          {/* Placeholder fallback */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground/40 font-brand text-xs">
-            <span className="font-semibold">Image</span>
-            <span className="text-[10px] mt-1 opacity-70">{dimensionsText}</span>
-            <span className="text-[9px] mt-1 break-all px-2 text-center opacity-50 font-brand">public{src}</span>
-          </div>
+          {/* Polaroid Developing Effect Background */}
+          <div className="absolute inset-0 bg-[#F4F1E1] dark:bg-[#2A2824]"></div>
           <img
             src={src}
             alt={alt}
-            className="relative z-10 w-full h-full object-cover opacity-0 transition-opacity duration-700"
+            className="relative z-10 w-full h-full object-cover opacity-0 transition-opacity duration-[1500ms] ease-in-out"
             onLoad={(e) => (e.currentTarget.style.opacity = '1')}
             onError={(e) => (e.currentTarget.style.opacity = '0')}
           />
@@ -191,13 +187,13 @@ const AboutPage = () => {
       <div className="flex-grow pt-16">
 
         {/* HERO */}
-        <section className="relative min-h-[90vh] pt-32 pb-24 md:pt-40 md:pb-32 flex items-center overflow-hidden">
+        <section className="relative min-h-[90vh] pt-28 pb-16 md:pt-40 md:pb-32 flex items-center overflow-hidden">
           <NotebookBackground showMargin />
-          <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-8 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 items-center">
+          <div className="relative z-10 max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
 
               {/* LEFT — Magnetic name + bio */}
-              <div className="order-2 md:order-1 flex flex-col items-start z-10">
+              <div className="order-1 flex flex-col items-start z-10">
                 <motion.span
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -255,7 +251,7 @@ const AboutPage = () => {
               {/* RIGHT — Scattered Desk */}
               <div
                 ref={deskRef}
-                className="order-1 md:order-2 relative w-full h-[480px] md:h-[540px]"
+                className="order-2 relative w-full h-[480px] md:h-[540px] mt-8 md:mt-0"
               >
                 {/* Main portrait */}
                 <DeskItem
@@ -265,11 +261,8 @@ const AboutPage = () => {
                 >
                   <div className="bg-background p-3 pb-10 shadow-xl border border-border/50">
                     <div className="relative w-full aspect-[4/5] bg-secondary/50 overflow-hidden">
-                      <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground/30 text-xs font-brand">
-                        <span>800x1000px</span>
-                        <span className="font-brand text-[9px] opacity-60">/about-portrait-hero.png</span>
-                      </div>
-                      <img src="/about-portrait-hero.png" alt="Portrait" className="relative z-10 w-full h-full object-cover opacity-0 transition-opacity duration-700" onLoad={e => (e.currentTarget.style.opacity = "1")} onError={e => (e.currentTarget.style.opacity = "0")} />
+                      <div className="absolute inset-0 bg-[#F4F1E1] dark:bg-[#2A2824]"></div>
+                      <img src="/about-portrait-hero.png" alt="Portrait" className="relative z-10 w-full h-full object-cover opacity-0 transition-opacity duration-[1500ms] ease-in-out" onLoad={e => (e.currentTarget.style.opacity = "1")} onError={e => (e.currentTarget.style.opacity = "0")} />
                     </div>
                     <p className="font-handwritten text-muted-foreground text-sm text-center mt-3 relative z-10">that’s me. mid-thought, probably.</p>
                   </div>
@@ -322,10 +315,10 @@ const AboutPage = () => {
         </section>
 
         {/* CURIOUS */}
-        <section className="py-24 md:py-32 bg-secondary/10 relative" id="curious">
+        <section className="py-16 md:py-32 bg-secondary/10 relative" id="curious">
           <NotebookBackground showMargin />
-          <div className="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-center">
+          <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-center">
               <div className="md:col-span-7">
                 <FadeIn delay={0}>
                   <p className="font-brand text-accent italic font-medium mb-6 tracking-wide">chapter one</p>
@@ -337,7 +330,7 @@ const AboutPage = () => {
                   </h2>
                 </FadeIn>
               </div>
-              <div className="md:col-span-5 md:col-start-8 flex flex-col justify-center pt-20 md:pt-0">
+              <div className="md:col-span-5 md:col-start-8 flex flex-col justify-center">
                 <FadeIn delay={0.2}>
                   <div className="space-y-6 mb-2">
                     <p className="font-brand text-foreground font-light text-xl md:text-2xl leading-relaxed max-w-lg">
@@ -358,11 +351,11 @@ const AboutPage = () => {
           </div>
         </section>
 
-        <section className="py-24 md:py-32 relative bg-background">
+        <section className="py-16 md:py-32 relative bg-background">
           <NotebookBackground showMargin />
-          <div className="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
-              <div className="flex justify-center md:justify-start">
+          <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+              <div className="order-2 md:order-1 flex justify-center md:justify-start mt-8 md:mt-0">
                 <FadeIn className="w-full max-w-[400px]">
                   <ScrapbookImage
                     src="/about-systems.png"
@@ -374,7 +367,7 @@ const AboutPage = () => {
                   />
                 </FadeIn>
               </div>
-              <div className="flex flex-col justify-center items-start">
+              <div className="order-1 md:order-2 flex flex-col justify-center items-start">
                 <FadeIn delay={0}>
                   <p className="font-brand text-[10px] md:text-[11px] uppercase tracking-[0.5em] text-muted-foreground/60 font-medium mb-6">02 . HOW MY BRAIN WORKS</p>
                 </FadeIn>
@@ -399,9 +392,9 @@ const AboutPage = () => {
           </div>
         </section>
 
-        <section className="py-24 md:py-32 bg-secondary/10 relative">
+        <section className="py-16 md:py-32 bg-secondary/10 relative">
           <NotebookBackground showMargin />
-          <div className="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10 text-center">
+          <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10 text-center">
             <div className="flex flex-col items-center">
               <FadeIn delay={0}>
                 <h2 className="font-handwritten text-2xl md:text-4xl lg:text-5xl text-foreground leading-relaxed md:leading-tight mb-12 max-w-3xl mx-auto">
@@ -419,10 +412,10 @@ const AboutPage = () => {
         </section>
 
         {/* IDEAS */}
-        <section className="py-24 md:py-32 bg-foreground text-background">
-          <div className="max-w-[1200px] mx-auto px-6 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-center">
-              <div className="md:col-span-5 order-2 md:order-1 flex flex-col justify-center">
+        <section className="py-16 md:py-32 bg-foreground text-background">
+          <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-center">
+              <div className="md:col-span-5 flex flex-col justify-center">
                 <FadeIn delay={0}>
                   <p className="font-handwritten text-accent text-3xl mb-6 leading-snug">things i love →</p>
                 </FadeIn>
@@ -444,10 +437,10 @@ const AboutPage = () => {
                   </div>
                 </FadeIn>
               </div>
-              <div className="md:col-span-7 order-1 md:order-2">
+              <div className="md:col-span-7 mt-8 md:mt-0">
                 <FadeIn delay={0.2} className="w-full relative">
-                  <div className="relative aspect-[16/9] md:aspect-[2/1] w-full bg-black shadow-2xl rotate-[1deg] overflow-hidden">
-                    <img src="/about-ideas.png" alt="Working late" className="w-full h-full object-cover opacity-80 transition-opacity duration-700" onLoad={(e) => (e.currentTarget.style.opacity = '0.9')} onError={(e) => (e.currentTarget.style.opacity = '0')} />
+                  <div className="relative aspect-[16/9] md:aspect-[2/1] w-full bg-[#1A1A1A] shadow-2xl rotate-[1deg] overflow-hidden">
+                    <img src="/about-ideas.png" alt="Working late" className="w-full h-full object-cover opacity-0 transition-opacity duration-[1500ms] ease-in-out" onLoad={(e) => (e.currentTarget.style.opacity = '0.9')} onError={(e) => (e.currentTarget.style.opacity = '0')} />
                   </div>
                   <p className="font-handwritten text-accent text-2xl md:text-3xl mt-6 leading-snug md:ml-4 text-center md:text-left">3am. one more episode. always.</p>
                 </FadeIn>
@@ -458,18 +451,14 @@ const AboutPage = () => {
 
         {/* TRAVEL */}
         <section className="relative min-h-[70vh] md:min-h-[90vh] w-full overflow-hidden flex items-end pb-8 md:pb-12">
-          <div className="absolute inset-0 bg-black/20 flex flex-col items-center justify-center text-white/40 font-brand text-xs z-0">
-            <span className="font-semibold">Full Bleed Image Background</span>
-            <span className="text-[10px] mt-1 opacity-70">1920x1080px (16:9)</span>
-            <span className="text-[10px] mt-1 opacity-50 font-brand">public/about-travel.png</span>
-          </div>
-          <img src="/about-travel.png" alt="Travel" className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700 opacity-0" onLoad={(e) => (e.currentTarget.style.opacity = '1')} onError={(e) => (e.currentTarget.style.opacity = '0')} />
+          <div className="absolute inset-0 bg-[#1A1A1A] z-0"></div>
+          <img src="/about-travel.png" alt="Travel" className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-[1500ms] ease-in-out opacity-0" onLoad={(e) => (e.currentTarget.style.opacity = '1')} onError={(e) => (e.currentTarget.style.opacity = '0')} />
           {/* Bottom Dark Gradient Overlay */}
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
 
           {/* Aligned Top Overlay (for location tag) */}
           <div className="absolute inset-x-0 top-0 z-20">
-            <div className="max-w-[1200px] mx-auto px-6 md:px-8 pt-8 md:pt-12 flex justify-end">
+            <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 pt-8 md:pt-12 flex justify-end">
               <FadeIn delay={1}>
                 <div className="flex items-center gap-2 bg-black/20 backdrop-blur-md border border-white/10 px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg rotate-[1deg]">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/70">
@@ -482,8 +471,8 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div className="relative z-20 max-w-[1200px] mx-auto px-6 md:px-8 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-end h-full">
+          <div className="relative z-20 max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-end h-full">
               <div>
                 <FadeIn delay={0}>
                   <p className="font-brand text-[10px] md:text-[11px] tracking-[0.5em] text-white/60 uppercase font-medium mb-6">04 . IN TRANSIT</p>
@@ -512,11 +501,11 @@ const AboutPage = () => {
         </section>
 
         {/* DISCIPLINE */}
-        <section className="py-24 md:py-32 bg-secondary/20 relative">
+        <section className="py-16 md:py-32 bg-secondary/20 relative">
           <NotebookBackground showMargin />
-          <div className="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
-              <FadeIn className="flex flex-col items-center md:items-end w-full">
+          <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+              <FadeIn className="order-2 md:order-1 flex flex-col items-center md:items-end w-full mt-8 md:mt-0">
                 <div className="w-full max-w-[360px]">
                   <ScrapbookImage
                     src="/about-blackbelt.png"
@@ -529,7 +518,7 @@ const AboutPage = () => {
                   />
                 </div>
               </FadeIn>
-              <div className="flex flex-col justify-center pt-8 md:pt-0">
+              <div className="order-1 md:order-2 flex flex-col justify-center">
                 <FadeIn delay={0}>
                   <p className="font-brand text-[10px] md:text-[11px] uppercase tracking-[0.5em] text-muted-foreground/60 font-medium mb-6">05 . BEFORE PIXELS</p>
                 </FadeIn>
@@ -559,11 +548,11 @@ const AboutPage = () => {
         </section>
 
         {/* GUITAR */}
-        <section className="py-24 md:py-32 relative bg-background">
+        <section className="py-16 md:py-32 relative bg-background">
           <NotebookBackground showMargin />
-          <div className="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-center">
-              <div className="md:col-span-5 md:col-start-2 order-2 md:order-1 flex flex-col justify-center">
+          <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-center">
+              <div className="md:col-span-5 md:col-start-2 flex flex-col justify-center">
                 <FadeIn delay={0}>
                   <p className="font-brand text-accent font-medium italic mb-6 tracking-wider">recently —</p>
                 </FadeIn>
@@ -589,7 +578,7 @@ const AboutPage = () => {
                   </div>
                 </FadeIn>
               </div>
-              <div className="md:col-span-5 md:col-start-7 order-1 md:order-2">
+              <div className="md:col-span-5 md:col-start-7 mt-8 md:mt-0">
                 <FadeIn delay={0.2} className="w-full max-w-[340px] mx-auto md:mx-0">
                   <ScrapbookImage
                     src="/about-guitar.png"
@@ -607,10 +596,10 @@ const AboutPage = () => {
         </section>
 
         {/* PAPER */}
-        <section className="py-24 md:py-32 bg-secondary/10 relative">
+        <section className="py-16 md:py-32 bg-secondary/10 relative">
           <NotebookBackground showMargin />
-          <div className="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+          <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
               <div className="flex flex-col justify-center items-start md:items-start md:pr-12">
                 <FadeIn delay={0}>
                   <p className="font-brand text-[10px] md:text-[11px] uppercase tracking-[0.5em] text-muted-foreground/60 font-medium mb-6">A HABIT</p>
@@ -644,11 +633,11 @@ const AboutPage = () => {
         </section>
 
         {/* SHELF */}
-        <section className="py-24 md:py-32 bg-background relative">
+        <section className="py-16 md:py-32 bg-background relative">
           <NotebookBackground showMargin />
-          <div className="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-center">
-              <div className="md:col-span-5 flex justify-center md:justify-start">
+          <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-center">
+              <div className="order-2 md:order-1 md:col-span-5 flex justify-center md:justify-start mt-8 md:mt-0">
                 <FadeIn className="w-full max-w-[360px]">
                   <ScrapbookImage
                     src="/about-shelf.png"
@@ -661,7 +650,7 @@ const AboutPage = () => {
                   />
                 </FadeIn>
               </div>
-              <div className="md:col-span-7 flex flex-col justify-center">
+              <div className="order-1 md:order-2 md:col-span-7 flex flex-col justify-center">
                 <FadeIn delay={0}>
                   <p className="font-brand text-[10px] md:text-[11px] uppercase tracking-[0.5em] text-muted-foreground/60 font-medium mb-6">CURRENTLY (SLOWLY) READING</p>
                 </FadeIn>
@@ -697,11 +686,11 @@ const AboutPage = () => {
         </section>
 
         {/* CLOSING */}
-        <section className="py-24 md:py-32 bg-secondary/10 relative">
+        <section className="py-16 md:py-32 bg-secondary/10 relative">
           <NotebookBackground showMargin />
-          <div className="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
-              <FadeIn className="flex justify-center md:justify-end">
+          <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+              <FadeIn className="order-2 md:order-1 flex justify-center md:justify-end mt-8 md:mt-0">
                 <div className="w-full max-w-[320px]">
                   <ScrapbookImage
                     src="/about-closing.png"
@@ -714,7 +703,7 @@ const AboutPage = () => {
                   />
                 </div>
               </FadeIn>
-              <div className="flex flex-col justify-center">
+              <div className="order-1 md:order-2 flex flex-col justify-center">
                 <FadeIn delay={0}>
                   <h2 className="font-display font-semibold text-6xl md:text-8xl text-foreground mb-8 leading-[1.1]">
                     Still <br /><span className="italic">figuring <br />things out</span><span className="inline-block w-[0.6em] h-[4px] md:h-[6px] bg-primary ml-2 animate-pulse align-baseline" style={{ animationDuration: '1s' }}></span>

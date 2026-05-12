@@ -398,41 +398,40 @@ const SideProjects = () => {
 
       <Navbar />
 
-      {/* Floating Toggle Button */}
-      <div className="fixed top-24 right-6 md:top-32 md:right-10 z-[100]">
-        <button
-          onClick={() => setIsXRayMode(!isXRayMode)}
-          className={`flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-sm font-mono text-xs md:text-sm font-bold tracking-widest shadow-xl transition-all duration-300 border uppercase backdrop-blur-md ${
-            isXRayMode 
-              ? "bg-foreground/10 text-foreground border-foreground scale-105" 
-              : "bg-background/80 text-foreground border-border hover:bg-secondary/90"
-          }`}
-        >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="16" 
-            height="16" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className={`transition-colors ${isXRayMode ? 'text-accent animate-pulse' : 'text-foreground'}`}
-          >
-            <path d="M4 14v3.5A2.5 2.5 0 0 0 6.5 20h11a2.5 2.5 0 0 0 2.5-2.5V14" />
-            <rect x="2" y="7" width="20" height="8" rx="2" ry="2" />
-            <path d="M12 7v8" />
-          </svg>
-          {isXRayMode ? "X-Ray Active" : "X-Ray Mode"}
-        </button>
-      </div>
-
       {/* ── Hero (Full Width) ───────────────────────────────────────────── */}
       <section
         className="relative w-full overflow-hidden border-b border-border/40 pt-32"
         onMouseMove={handleMouseMove}
       >
+        {/* Floating Toggle Button (Absolute to Hero) */}
+        <div className="absolute top-24 right-6 md:top-32 md:right-10 z-40">
+          <button
+            onClick={() => setIsXRayMode(!isXRayMode)}
+            className={`flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-sm font-mono text-xs md:text-sm font-bold tracking-widest shadow-xl transition-all duration-300 border uppercase backdrop-blur-md ${
+              isXRayMode 
+                ? "bg-foreground/10 text-foreground border-foreground scale-105" 
+                : "bg-background/80 text-foreground border-border hover:bg-secondary/90"
+            }`}
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="16" 
+              height="16" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              className={`transition-colors ${isXRayMode ? 'text-accent animate-pulse' : 'text-foreground'}`}
+            >
+              <path d="M4 14v3.5A2.5 2.5 0 0 0 6.5 20h11a2.5 2.5 0 0 0 2.5-2.5V14" />
+              <rect x="2" y="7" width="20" height="8" rx="2" ry="2" />
+              <path d="M12 7v8" />
+            </svg>
+            {isXRayMode ? "X-Ray Active" : "X-Ray Mode"}
+          </button>
+        </div>
         <ExperimentalGrid mouseX={mouseX} mouseY={mouseY} />
 
         <div className="max-w-6xl mx-auto px-6 md:px-10 w-full py-20 md:py-32 relative z-10">
