@@ -272,7 +272,7 @@ const CaseStudyCaudate = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 font-brand">
               <div className="space-y-3">
                 <p className="text-sm uppercase tracking-widest text-muted-foreground font-normal">Timeline</p>
-                <p className="text-base text-foreground font-normal">Jan 2025 – Mar 2025</p>
+                <p className="text-base text-foreground font-normal">10 Weeks</p>
               </div>
               <div className="space-y-3">
                 <p className="text-sm uppercase tracking-widest text-muted-foreground font-normal">Role</p>
@@ -290,7 +290,7 @@ const CaseStudyCaudate = () => {
 
             <div className="mt-10">
               <p className="text-sm uppercase tracking-widest text-muted-foreground font-normal mb-6 font-brand">The Team</p>
-              <div className="flex flex-wrap gap-x-10 gap-y-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-4 md:gap-x-10">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-[20px] bg-background border border-border flex items-center justify-center shadow-sm">
                     <User aria-hidden="true" className="w-5 h-5 text-[#7C4BF9]" />
