@@ -13,6 +13,18 @@ export const DoodleCanvas = () => {
   const [currentStroke, setCurrentStroke] = useState<Point[]>([]);
   const svgRef = useRef<SVGSVGElement>(null);
   const [svgHeight, setSvgHeight] = useState('100%');
+  const [isAtBottom, setIsAtBottom] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hide button when within 300px of the bottom (footer area)
+      const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 300;
+      setIsAtBottom(isBottom);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Ensure SVG covers the full scrollable document height
   useEffect(() => {
@@ -90,7 +102,11 @@ export const DoodleCanvas = () => {
   return (
     <>
       {/* Floating Toggle Button */}
-      <div className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100]">
+      <div 
+        className={`fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] transition-all duration-500 ${
+          isAtBottom && !isDoodleMode ? "translate-y-24 opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
+        }`}
+      >
         <button
           onClick={() => setIsDoodleMode(!isDoodleMode)}
           className={`flex items-center gap-2 px-5 py-3 md:px-6 md:py-4 rounded-full font-handwritten text-xl md:text-2xl shadow-2xl transition-all duration-300 border backdrop-blur-md ${

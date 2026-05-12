@@ -257,7 +257,8 @@ const AboutPage = () => {
                 <DeskItem
                   dragConstraints={deskRef}
                   initialRotate={3}
-                  style={{ top: "5%", left: "15%", width: "52%" }}
+                  style={{ top: "5%", left: "15%" }}
+                  className="w-[65%] max-w-[240px] md:w-[52%] md:max-w-none"
                 >
                   <div className="bg-background p-3 pb-10 shadow-xl border border-border/50">
                     <div className="relative w-full aspect-[4/5] bg-secondary/50 overflow-hidden">
@@ -356,7 +357,7 @@ const AboutPage = () => {
           <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
               <div className="order-2 md:order-1 flex justify-center md:justify-start mt-8 md:mt-0">
-                <FadeIn className="w-full max-w-[400px]">
+                <FadeIn className="w-full max-w-[280px] md:max-w-[400px]">
                   <ScrapbookImage
                     src="/about-systems.png"
                     alt="Systems thinking visualization"
@@ -506,7 +507,7 @@ const AboutPage = () => {
           <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
               <FadeIn className="order-2 md:order-1 flex flex-col items-center md:items-end w-full mt-8 md:mt-0">
-                <div className="w-full max-w-[360px]">
+                <div className="w-full max-w-[260px] md:max-w-[360px]">
                   <ScrapbookImage
                     src="/about-blackbelt.png"
                     alt="Taekwondo Black Belt"
@@ -579,7 +580,7 @@ const AboutPage = () => {
                 </FadeIn>
               </div>
               <div className="md:col-span-5 md:col-start-7 mt-8 md:mt-0">
-                <FadeIn delay={0.2} className="w-full max-w-[340px] mx-auto md:mx-0">
+                <FadeIn delay={0.2} className="w-full max-w-[260px] md:max-w-[340px] mx-auto md:mx-0">
                   <ScrapbookImage
                     src="/about-guitar.png"
                     alt="Playing guitar"
@@ -615,8 +616,8 @@ const AboutPage = () => {
                   </p>
                 </FadeIn>
               </div>
-              <div className="w-full">
-                <FadeIn delay={0.2} className="w-full relative">
+              <div className="w-full flex justify-center md:justify-start">
+                <FadeIn delay={0.2} className="w-full relative max-w-[300px] md:max-w-none">
                   <ScrapbookImage
                     src="/about-paper.png"
                     alt="Notebook"
@@ -638,7 +639,7 @@ const AboutPage = () => {
           <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-center">
               <div className="order-2 md:order-1 md:col-span-5 flex justify-center md:justify-start mt-8 md:mt-0">
-                <FadeIn className="w-full max-w-[360px]">
+                <FadeIn className="w-full max-w-[260px] md:max-w-[360px]">
                   <ScrapbookImage
                     src="/about-shelf.png"
                     alt="Currently reading book image"
@@ -691,7 +692,7 @@ const AboutPage = () => {
           <div className="max-w-[1200px] mx-auto pl-12 pr-6 md:px-8 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
               <FadeIn className="order-2 md:order-1 flex justify-center md:justify-end mt-8 md:mt-0">
-                <div className="w-full max-w-[320px]">
+                <div className="w-full max-w-[240px] md:max-w-[320px]">
                   <ScrapbookImage
                     src="/about-closing.png"
                     alt="Closing Portrait"
