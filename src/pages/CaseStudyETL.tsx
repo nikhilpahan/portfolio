@@ -228,8 +228,8 @@ const CaseStudyETL = () => {
             </FadeIn>
 
             {/* Workflow Diagram */}
-            <FadeIn delay={0.2} className="w-full bg-secondary/20 rounded-[24px] border border-border/50 p-6 md:p-10 flex flex-col items-center justify-center gap-6 h-full min-h-[300px]">
-              <div className="flex justify-center items-center gap-4 w-full">
+            <FadeIn delay={0.2} className="w-full bg-secondary/20 rounded-[24px] border border-border/50 p-6 md:p-10 flex flex-col items-center justify-center gap-6 h-full min-h-[300px] overflow-x-auto">
+              <div className="flex justify-start md:justify-center items-center gap-4 w-full min-w-max md:min-w-0 pb-2">
                 <div className="flex flex-col gap-3">
                   <div className="w-32 h-12 bg-background border border-border rounded-lg flex items-center justify-center shadow-sm">
                     <Database className="w-4 h-4 text-muted-foreground mr-2" /><span className="text-xs font-brand font-medium">Dataset A</span>
@@ -285,7 +285,7 @@ const CaseStudyETL = () => {
             </div>
             {/* Diagram — scrolls horizontally on mobile, centered on desktop */}
             <div className="md:absolute md:inset-0 flex items-center justify-start md:justify-center px-6 md:px-14 pt-14 pb-8 md:pt-0 md:pb-0">
-              <div className="flex items-center w-full max-w-5xl">
+              <div className="flex items-center w-full max-w-5xl min-w-max md:min-w-0 pb-4">
                 {/* SOURCES */}
                 <div className="flex flex-col gap-3 flex-shrink-0">
                   <div className="bg-background border border-border rounded-xl px-3 py-2.5 w-36 md:w-44 shadow-sm">
@@ -665,8 +665,8 @@ const CaseStudyETL = () => {
                 <p className="text-xs md:text-sm text-muted-foreground font-brand leading-relaxed">Most tools handle single datasets well, but combining multiple sources introduces complexity. Users struggle to structure and unify data without writing queries or understanding schemas.</p>
               </div>
               {/* Gap diagram — wrapped container */}
-              <div className="bg-background border border-border rounded-2xl p-5">
-                <div className="flex items-center justify-between gap-2">
+              <div className="bg-background border border-border rounded-2xl p-5 overflow-x-auto">
+                <div className="flex items-center justify-between gap-2 min-w-max md:min-w-0 pb-2">
                   {/* Left: 1 dataset box — absolute limitation floats below without disrupting centering */}
                   <div className="relative flex-shrink-0 pb-5">
                     <div className="px-4 py-2 border border-border rounded-xl bg-secondary/20">
@@ -707,7 +707,7 @@ const CaseStudyETL = () => {
                 <p className="text-xs md:text-sm text-muted-foreground font-brand leading-relaxed">Form-based configurations hide relationships between transformations. A visual pipeline makes dependencies explicit, helping users understand how data evolves step by step.</p>
               </div>
               {/* Form vs Pipeline side-by-side */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* A — FORM */}
                 <div className="bg-background border border-border rounded-xl p-4 flex flex-col gap-3">
                   <span className="text-[9px] font-brand font-bold text-muted-foreground tracking-widest">A — FORM</span>
@@ -751,8 +751,9 @@ const CaseStudyETL = () => {
                 <p className="text-xs md:text-sm text-muted-foreground font-brand leading-relaxed">A node-based canvas allows users to construct workflows visually. Each step becomes a manipulable unit, making complex transformations easier to build, modify, and debug.</p>
               </div>
               {/* Node canvas — 3 inputs → SVG curves → JOIN → output */}
-              <div className="bg-background border border-border rounded-2xl p-6 flex items-center gap-2">
-                {/* 3 input nodes — visible with secondary fill */}
+              <div className="bg-background border border-border rounded-2xl p-6 overflow-x-auto">
+                <div className="flex items-center justify-start gap-2 min-w-max md:min-w-0 pb-2">
+                  {/* 3 input nodes — visible with secondary fill */}
                 <div className="flex flex-col gap-3 flex-shrink-0">
                   <div className="w-12 h-8 border border-border rounded-lg bg-secondary/40" />
                   <div className="w-12 h-8 border border-border rounded-lg bg-secondary/40" />
@@ -768,10 +769,11 @@ const CaseStudyETL = () => {
                 <div className="flex-shrink-0 px-5 py-3.5 border-2 border-[#7C4BF9]/70 rounded-2xl bg-[#7C4BF9]/8">
                   <span className="text-[11px] font-brand font-bold text-[#7C4BF9] uppercase tracking-widest">JOIN</span>
                 </div>
-                {/* Line to output */}
-                <div className="flex-1 h-0.5 bg-border" />
-                {/* Dark output square */}
-                <div className="w-11 h-11 rounded-lg bg-foreground flex-shrink-0" />
+                  {/* Line to output */}
+                  <div className="flex-1 min-w-[20px] h-0.5 bg-border" />
+                  {/* Dark output square */}
+                  <div className="w-11 h-11 rounded-lg bg-foreground flex-shrink-0" />
+                </div>
               </div>
             </FadeIn>
 
