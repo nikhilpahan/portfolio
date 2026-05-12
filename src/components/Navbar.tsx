@@ -116,17 +116,16 @@ const Navbar = () => {
         animate={{ y: isHidden ? -120 : 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         style={{ transition: "border-radius 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease, backdrop-filter 0.5s ease" }}
-        className={`fixed z-50 overflow-hidden
+        className={`fixed z-50 overflow-hidden transition-all duration-500
           ${
             isOpen 
               ? "top-3 left-3 right-3 bg-background/70 backdrop-blur-2xl border border-border/50 rounded-[28px] shadow-2xl" 
-              : "top-3 left-3 right-3 md:top-0 md:left-0 md:right-0 bg-background/70 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none border border-border/50 md:border-transparent rounded-full md:rounded-none shadow-lg md:shadow-none"
+              : `top-3 left-3 right-3 md:top-0 md:left-0 md:right-0 bg-background/70 backdrop-blur-xl border border-border/50 rounded-full shadow-lg ${
+                  scrolled
+                    ? "md:bg-background/80 md:backdrop-blur-md md:border-b md:rounded-none md:shadow-none"
+                    : "md:bg-transparent md:backdrop-blur-none md:border-transparent md:rounded-none md:shadow-none"
+                }`
           } 
-          ${
-            scrolled && !isOpen
-              ? "md:bg-background/80 md:backdrop-blur-md md:border-b md:border-border/50"
-              : ""
-          }
         `}
       >
         <div className="max-w-6xl mx-auto px-6 md:px-10 flex flex-col justify-center">
