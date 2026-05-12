@@ -1,0 +1,20 @@
+﻿For the **Attavita Case Study**, you need to upload a total of **10 images**. Here are the specific names and recommended sizes based on the layout and aspect ratios used in your code:
+
+### 1. Main Project Thumbnail
+This is the image used on your home page and in the "Explore more" section.
+*   **Current File Name:** `project-3.jpg` (located in `src/assets/`)
+*   **Recommended Size:** **1200 x 900px** (4:3 aspect ratio)
+
+### 2. Hero & Approach (Currently Placeholders)
+The code uses `div` placeholders for these, but they are designed for the following ratios:
+*   **Hero Image**:
+    *   **Desktop:** `1920 x 840px` (16:7 ratio)
+    *   **Mobile:** `1200 x 750px` (16:10 ratio)
+*   **Design Approach Visualization**:
+    *   **Desktop:** `2100 x 900px` (21:9 ultra-wide ratio)
+    *   **Mobile:** `1200 x 750px` (16:10 ratio)
+
+### 3. Core Experience Sections
+These are the large images in Section 03. All of them use a **16:10** aspect ratio.
+*   **Recommended Size:** **1600 x 1000px**
+<truncated 805 bytes>

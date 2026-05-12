@@ -1,0 +1,142 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 10% 97%;
+    --foreground: 220 20% 10%;
+
+    --card: 40 15% 95%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 40 20% 97%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 220 20% 10%;
+    --primary-foreground: 40 20% 97%;
+
+    --secondary: 40 10% 92%;
+    --secondary-foreground: 220 20% 10%;
+
+    --muted: 40 10% 92%;
+    --muted-foreground: 220 8% 40%;
+
+    --accent: 16 70% 56%;
+    --accent-foreground: 40 20% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 10% 88%;
+    --input: 40 10% 88%;
+    --ring: 220 20% 10%;
+
+    --radius: 12px;
+
+    --font-display: 'Satoshi', sans-serif;
+    --font-body: 'Satoshi', sans-serif;
+    --font-brand: 'Satoshi', sans-serif;
+    --font-handwritten: 'Caveat', cursive;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 20% 7%;
+    --foreground: 40 15% 92%;
+    --card: 220 18% 11%;
+    --card-foreground: 40 15% 92%;
+    --popover: 220 20% 7%;
+    --popover-foreground: 40 15% 92%;
+    --primary: 40 15% 92%;
+    --primary-foreground: 220 20% 7%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 40 15% 92%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 8% 65%;
+    --accent: 16 70% 56%;
+    --accent-foreground: 40 20% 97%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 40 15% 92%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.2);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .notebook-lines {
+    background-image: linear-gradient(to bottom, transparent 31px, hsl(var(--foreground) / 0.2) 32px);
+    background-size: 100% 32px;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes erratic-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  5% { opacity: 0.3; transform: scale(0.9); }
+  10% { opacity: 1; transform: scale(1.1); }
+  15% { opacity: 0.5; transform: scale(0.95); }
+  20% { opacity: 1; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1); }
+  55% { opacity: 0.2; transform: scale(0.8); }
+  60% { opacity: 1; transform: scale(1); }
+}
+
+.animate-erratic-pulse {
+  animation: erratic-pulse 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}

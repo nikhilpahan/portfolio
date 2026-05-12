@@ -1,0 +1,24 @@
+# Nikhil Pahan - Technical Product Designer
+
+Nikhil Pahan is a Technical Product Designer specializing in B2B SaaS, AI interfaces, and high-conversion e-commerce. He bridges the gap between design and engineering, utilizing AI-assisted development workflows (prompt engineering) to build high-fidelity, production-ready prototypes.
+
+## Key Projects
+
+### CaudateAI
+- Role: Product Designer
+- Type: B2B AI Analytics SaaS
+- Description: Designed an intent-driven, no-code AI platform that translates natural language questions into KPIs and dashboards without requiring SQL. Focused on "Logic Visibility" to minimize AI hallucination risks.
+
+### Visual ETL Data Pipeline
+- Role: Product Designer
+- Type: Enterprise Data Tooling
+- Description: Architected a node-based visual ETL interface, reducing a manual 15-step data preparation workflow into 5 intuitive steps. Integrated AI-assisted data cleanup.
+
+### Attavita
+- Role: Lead Product Designer
+- Type: D2C E-commerce (Shopify)
+- Description: Engineered a progressive disclosure architecture and a high-conversion funnel for a novel health product. Bridged design and frontend execution using AI-assisted coding.
+
+## Core Skills
+- Design: UX/UI Design, Product Design, Interaction Design, Systems Thinking, Information Architecture.
+- Technical: React.js, Tailwind CSS, TypeScript, Framer Motion, AI-Assisted Prototyping, Prompt Engineering.

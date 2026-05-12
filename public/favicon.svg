@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&amp;display=swap');
+    .logo-text {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 65px;
+      letter-spacing: -2px;
+      fill: #f5f5f5; /* Default white text for dark mode tabs */
+    }
+    
+    @media (prefers-color-scheme: light) {
+      .logo-text {
+        fill: #141414; /* Dark text for light mode tabs */
+      }
+    }
+  </style>
+  
+  <!-- Logo Text -->
+  <text x="50" y="55" class="logo-text" dominant-baseline="middle" text-anchor="middle">NP<tspan fill="hsl(16, 70%, 56%)">.</tspan></text>
+</svg>
