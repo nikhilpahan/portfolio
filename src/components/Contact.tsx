@@ -42,7 +42,12 @@ const CustomTimeWidget = () => {
       <span className="w-1 h-1 rounded-full bg-white/20 mx-1"></span>
       <div className="flex items-center gap-1.5">
         <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${status === 'ONLINE' ? 'bg-emerald-500' : status === 'SLEEP MODE' ? 'bg-amber-500' : 'bg-blue-500'}`}></span>
-        <span className="text-[10px] font-mono uppercase tracking-widest text-white/50">{status}</span>
+        {/* Desktop text status */}
+        <span className="hidden md:block text-[10px] font-mono uppercase tracking-widest text-white/50">{status}</span>
+        {/* Mobile emoji status */}
+        <span className="block md:hidden text-[13px]">
+          {status === 'SLEEP MODE' ? '😴' : status === 'BOOTING UP' ? '☕' : '🟢'}
+        </span>
       </div>
     </div>
   );
