@@ -72,7 +72,7 @@ const PROCESS_PHASES = [
   },
   {
     label: "04 / APPROACH",
-    image: "/Approch.png",
+    image: "/Approach.png",
     title: "AI-assisted workflow",
     description: <>The final design introduced a chat-based interface for KPI generation, supported by <strong className="text-foreground">suggested prompts and editable configurations</strong>. This balanced automation with user control.</>
   },

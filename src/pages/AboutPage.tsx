@@ -427,7 +427,7 @@ const AboutPage = () => {
                 </FadeIn>
                 <FadeIn delay={0.2}>
                   <p className="font-brand text-background/80 font-medium text-base md:text-lg leading-relaxed max-w-sm mb-6">
-                    Philosophy, films, anime — anything that<br className="hidden md:block" />shifts perspective. Not always productive.<br className="hidden md:block" />Always interesting.
+                    Philosophy, films, anime — anything that<br className="hidden md:block" /> shifts perspective. Not always productive.<br className="hidden md:block" /> Always interesting.
                   </p>
                 </FadeIn>
                 <FadeIn delay={0.4}>
@@ -530,7 +530,7 @@ const AboutPage = () => {
                 </FadeIn>
                 <FadeIn delay={0.2}>
                   <p className="font-brand text-foreground font-medium text-base md:text-lg leading-relaxed max-w-sm mb-6">
-                    Before design, I was into sports. Black belt in<br className="hidden md:block" />Taekwondo. State gold medalist.
+                    Before design, I was into sports. Black belt in<br className="hidden md:block" /> Taekwondo. State gold medalist.
                   </p>
                 </FadeIn>
                 <FadeIn delay={0.4}>
