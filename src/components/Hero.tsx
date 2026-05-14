@@ -111,8 +111,8 @@ const Hero = () => {
             size="lg"
             showArrow={false}
             rightIcon={<Download className="w-4 h-4" />}
-            href="/resume.pdf"
-            download="Resume.pdf"
+            href="/Nikhil Pahan's Resume.pdf"
+            download="Nikhil Pahan's Resume.pdf"
             className="bg-background/50 backdrop-blur-sm border-border/80 hover:bg-secondary/50"
           />
         </motion.div>
